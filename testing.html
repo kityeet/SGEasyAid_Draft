@@ -1,0 +1,110 @@
+<head>
+  <title>SGEasyAid</title>
+</head>
+
+<body>
+  <h1 align="center" style="color:SlateGray" font="face:courier">Welcome to SGEasyAid</h1>
+  <h4 align="center" style="color:Silver"><i>Which Makes Trip Planning Simpler</i></h4>
+  {{#if currentUser}}
+  {{> main}}
+  {{else}}
+  <div class="container"> <!--centers everything-->
+    {{>loginButtons}}
+    {{>navigation}}
+  </div>
+
+  {{/if}}
+</body>
+
+  <template name="main">
+  {{#if editing_event}}
+    {{>dialog}}
+  {{/if}}
+  <div class="container">
+    <h4 style="color:LightSalmon"><i><b>Plan Your Own Trip</b></i></h4>
+    {{>loginButtons}}
+    <h3 align="center">
+      <a href="{{pathFor route='Home'}}">Home</a>
+      <a href="{{pathFor route='TouristHotspots'}}">TouristHotspots</a>
+      <a href="{{pathFor route='ShoppingMalls'}}">ShoppingMalls</a>
+      <a href="{{pathFor route='Foodplaces'}}">Foodplaces</a>
+    </h3>
+      <div id="calendar">
+      <br>
+    </div>
+  </div>
+</template>
+
+<template name="dialog">
+  <div class="modal fade in show" id="" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close closeDialog" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="">Edit Event</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter a Title" value="{{title }}" >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default closeDialog" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary updateTitle">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="TouristHotspots">
+    <h4 align="center">Tourist Hotspots: <i>Where Wonders Begin</i></h4>
+    <p align="center"><a href="http://www.sentosa.com.sg/en/">Sentosa</a></p>
+    <p align="center"><a href="http://www.rwsentosa.com/Homepage/Attractions/UniversalStudiosSingapore">Universal Studios Singapore</a></p>
+    <p align="center"><a href="http://www.gardensbythebay.com.sg/en/home.html">Gardens by the Bay</a></p>
+    <p align="center"><a href="http://www.kampongglam.org.sg/aboutUs_HistoryOfKampongGlam.htm">Kampong Glam</a></p>
+    <p align="center"><a href="http://littleindia.com.sg/">Little India</a></p>
+    <p align="center"><a href="http://www.riversafari.com.sg/">River Safari</a></p>
+    <p align="center"><a href="http://www.zoo.com.sg/">Singapore Zoo</a></p>
+    <p align="center"><a href="http://www.birdpark.com.sg/">Jurong Bird Park</a></p>
+</template>
+
+<template name="ShoppingMalls">
+    <h4 align="center">Shopping Malls: <i>Where Pampering Occurs</i></h4>
+    <p align="center"><a href="http://bedokmall.com.sg/en/">Bedok Mall</a></p>
+    <p align="center"><a href="http://www.mustafa.com.sg/">Mustafa</a></p>
+    <p align="center"><a href="http://www.ikea.com/sg/en/">Ikea</a></p>
+    <p align="center"><a href="http://www.ionorchard.com/en/">Ion Orchard</a></p>
+    <p align="center"><a href="https://www.takashimaya.com.sg/">Takashimaya</a></p>
+    <p align="center"><a href="http://www.tampines1.com.sg/">Tampines One</a></p>
+    <p align="center"><a href="http://www.centurysquare.com.sg/">Century Square</a></p>
+    <p align="center"><a href="http://www.tampinesmall.com.sg/en/">Tampines Mall</a></p>
+</template>
+
+<template name="Foodplaces">
+    <h4 align="center">Foodplaces: <i>Where Cravings are Satisfied</i></h4>
+    <p align="center"><a href="http://www.koufu.com.sg/">Koufu</a></p>
+    <p align="center"><a href="http://www.dintaifung.com.sg/">Din Tai Fung</a></p>
+    <p align="center"><a href="http://poulet.com.sg/">Poulet</a></p>
+    <p align="center"><a href="https://www.mcdonalds.com.sg/">McDonald's</a></p>
+    <p align="center"><a href="http://www.burgerking.com.sg/">Burger King</a></p>
+    <p align="center"><a href="http://www.sakaesushi.com.sg/">Sakae Sushi</a></p>
+    <p align="center"><a href="https://www.ajisen.com.sg/">Ajisen Ramen</a></p>
+    <p align="center"><a href="http://www.gardensbythebay.com.sg/en/dining/satay-by-the-bay.html">Satay by the Bay</a></p>
+</template>
+
+<template name="Home">
+  <br>
+</template>
+
+<template name="navigation">
+  <h3 align="center">
+
+    <a href="{{pathFor route='Home'}}">Home</a>
+    <a href="{{pathFor route='TouristHotspots'}}">TouristHotspots</a>
+    <a href="{{pathFor route='ShoppingMalls'}}">ShoppingMalls</a>
+    <a href="{{pathFor route='Foodplaces'}}">Foodplaces</a>
+
+  </h3>
+</template>
